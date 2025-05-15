@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Login con Google</title>
+  <script src="config.js"></script>
 </head>
 <body>
   <h1>Login con Google</h1>
-  <button onclick="window.location.href='https://test-google-yvki.onrender.com/auth/google'">
+  <button onclick="window.location.href=window.API_URL + '/auth/google'">
     Iniciar sesión con Google
   </button>
   <script>
@@ -16,6 +17,8 @@
     if (token) {
       localStorage.setItem('access_token', token);
       document.body.innerHTML += '<p>¡Autenticado con éxito!</p>';
+      // Elimina el token de la URL por seguridad
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   </script>
 </body>
