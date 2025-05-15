@@ -30,7 +30,7 @@ function parsePort(port: string | undefined, fallback: number): number {
     }),
 
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'public'),
+      rootPath: join(process.cwd(), 'public'),
     }),
 
     UserModule,
