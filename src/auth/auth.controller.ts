@@ -48,6 +48,6 @@ export class AuthController {
   googleAuthRedirect(@Request() req: { user: User }, @Res() res: Response) {
     const { access_token } = this.authService.googleLogin(req);
     // Redirige al frontend con el token en la URL
-    return res.redirect(`http://localhost:4000?token=${access_token}`);
+    return res.redirect(`${process.env.HOST_APP}?token=${access_token}`);
   }
 }
