@@ -25,6 +25,8 @@ function parsePort(port: string | undefined, fallback: number): number {
       database: process.env.DB_NAME || 'nestdb',
       autoLoadEntities: true,
       synchronize: true,
+      ssl:
+        process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
     }),
 
     ServeStaticModule.forRoot({
