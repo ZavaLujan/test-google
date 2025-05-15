@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login con Google</title>
+</head>
+<body>
+  <h1>Login con Google</h1>
+  <button onclick="window.location.href='http://localhost:4000/auth/google'">
+    Iniciar sesión con Google
+  </button>
+  <script>
+    // Si vienes de la redirección, guarda el token
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    if (token) {
+      localStorage.setItem('access_token', token);
+      document.body.innerHTML += '<p>¡Autenticado con éxito!</p>';
+    }
+  </script>
+</body>
+</html>
